@@ -8,6 +8,12 @@ public class Horista extends Funcionario {
     private double valHora;
     private double qntHora;
 
+    public Horista(int matricula, String nome, double salario, int categoria, double vH, double qH) {
+        super(matricula, nome, salario, categoria);
+        valHora = vH;
+        qntHora = qH;
+    }
+    
     public double getValHora() {
         return valHora;
     }
