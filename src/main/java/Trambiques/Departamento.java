@@ -32,6 +32,7 @@ public class Departamento {
         System.out.println(
                 "| Nome: " + getNome() +
                 "\n|   Sigla: " + getSigla() +
+                "\n|   Salário Total: R$" + totalSalarioDepartamento() +
                 "\n| " + 
                 "\n| Funcionarios: " +
                 "\n+-----+-----+-----+-----+-----");
@@ -42,8 +43,28 @@ public class Departamento {
         }
     }
     
-    public void totalSalarioFuncionario(int categoria) {
+    public double totalSalarioDepartamento() {
+        double total = 0;
         
+        for (int i = 0; i < func.length; i++) {
+            if (func[i] != null) {
+                total = total + func[i].getSalario();
+            }
+        }
+        
+        return total;
+    }
+    
+    public double totalSalarioCategoria(int categoria) {
+        double total = 0;
+        
+        for (int i = 0; i < func.length; i++) {
+            if (func[i] != null && func[i].getCategoria() == categoria) {
+                total = total + func[i].getSalario();
+            }
+        }
+        
+        return total;
     }
     
     public String getNome() {

@@ -17,21 +17,24 @@ public class Menu {
         for (int i = 0; i < nomes.length - 5; i++) {
             funFinanceiro[i] = new Mensalista(i, nomes[i], 0, 1, salF[i]);
             funFinanceiro[i].setSalario(funFinanceiro[i].calcSalario());
-            funFinanceiro[i].mostrarFuncionario();
         }
         
         for (int i = 5; i < nomes.length; i++) {
             funFinanceiro[i] = new Horista(i, nomes[i], 0, 2, valH[i-5], qntH[i-5]);
             funFinanceiro[i].setSalario(funFinanceiro[i].calcSalario());
-            funFinanceiro[i].mostrarFuncionario();
         }
         
         Departamento depFinanceiro = new Departamento("Financeiro", "FIN", funFinanceiro);
         depFinanceiro.listarDepartamento();
         
         Departamento depRH = new Departamento("Recursos Humanos", "RH", funRH, 5);
-        depRH.inserirFuncionario(new Mensalista(1, "Recurson Umano", 0, 1, 2000));
-        depRH.inserirFuncionario(new Mensalista(2, "Humanus Rec", 0, 1, 2400));
+        depRH.inserirFuncionario(new Mensalista(0, "Recurson Umano", 0, 1, 2000));
+        depRH.inserirFuncionario(new Mensalista(1, "Humanus Rec", 0, 1, 2400));
+        
+        
         depRH.listarDepartamento();
+        
+        System.out.println("R$" + depFinanceiro.totalSalarioCategoria(1));
+        System.out.println("R$" + depFinanceiro.totalSalarioCategoria(2));
     }
 }
